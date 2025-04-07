@@ -36,6 +36,8 @@ const corsOptions = {
   credentials: true, // Quan trọng nếu bạn dùng cookies/sessions/tokens trong header Authorization
   optionsSuccessStatus: 204,
 };
+app.use(cors(corsOptions));
+
 app.all('/', function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -48,7 +50,7 @@ app.post('/', function (req, res, next) {
   // Handle the post for this route
   res.send('API đang hoạt động!');
 });
-app.use(cors(corsOptions));
+
 //Middleware
 
 app.use(bodyParser.json());
